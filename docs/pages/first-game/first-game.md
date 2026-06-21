@@ -78,7 +78,7 @@ We need the `engine_io` import to read the buttons, and we want to be sure our g
 
 Now that we have `engine_io`, we add a `.tick()` attribute to our MovableRectangle class with a couple button checks:  pressing the left shoulder button should rotate the square to the left, and the right shoulder button should rotate it to the right.  (The rotation measurement is in radians, so that's why the increment is one-hundredth of pi.)  Save and run!
 
-![](images/5_rotating_square.gif)
+![](images/5_a_rotating_square.gif)
 
 Yay, it rotates!  ...wait a moment, it's rotating clockwise when we press LB, and counterclockwise when we press RB.  I guess I got the signs wrong.  Feel free to change LB to addition  (and RB to subtraction) to fix this.  Also feel free to experiment with different increment values - I picked a rather small increment to match the frame rate of 60 frames per second (as-is, it'd take 200 frames, or a little over three seconds, to complete a rotation).
 
