@@ -43,3 +43,16 @@ Now, there are two main ways to run the game engine:  `engine.start()` and `engi
 
 * `engine.start()` is a more object-oriented way of running the game engine:  you set up all your Nodes with `.tick()` attributes to update them, and then call `engine.start()` and let it rotate through all your Nodes, calling their respective `.tick()` attributes during each frame.
 * `engine.tick()` is more procedural.  You call `engine.tick()` to check whether the engine has started the next frame; True = yes, False = no.  Note that when it is time, the call to `engine.tick()` will also call all your Nodes' `.tick()` attributes.
+
+## Child Class
+In this case, we're just tinkering with a measly two types of Nodes and have no plans to make an actually fun game (OR DO WE?), so we'll stick with `engine.start()`.  That means we need to add a `.tick()` attribute to our little white square... and THAT means we'll need to make a new class for the Node representing the square.  Replace the line `rectangle = Rectangle2DNode()` with the following:
+
+```py
+class MovableRectangle(Rectangle2DNode):
+    def __init__(self):
+        super().__init__(self)
+
+rectangle = MovableRectangle()
+```
+
+So.  This creates a new class called "MovableRectangle", based on the Rectangle2DNode class we've been using to make our small white square, and describes how to initialize an instance - namely, call the initialization routine from the parent class.  Save.  Feel free to run it, but we haven't provided instructions on how to deal with buttons, so nothing has visibly changed.  Let's fix that.
