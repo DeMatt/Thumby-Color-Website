@@ -140,3 +140,20 @@ There's one more function I'd like to add.  While the Thumby Color is connected 
 ```
 
 Now, you can press the Menu button, and our game will exit.  Technically, it continues executing from where you called `engine.start()`, but since that's the end of the code, that's also the end of the game.
+
+## Icon and Manifest
+Okay, we've created something entertaining, feel free to disconnect your Thumby Color from your computer and see what it looks like in the game launcher.  ...Oh, it's got this ugly question-mark icon.  We'll need to give it a proper icon file.
+
+![](images/icon.bmp)
+
+Reconnect your Thumby Color to your computer and Thonny, then upload this image file.  It's a screenshot of our test game, scaled to the icon size of 38x38 pixels.  Make sure it's in the same directory as our `main.py`, and make sure that the name is `icon.bmp`.  These are the default names that the launcher looks for, but we can override that with a special file, named `manifest.ini`.
+
+```dosini
+name=My First Game
+main=main.py
+icon=icon.bmp
+```
+
+* The `name` entry lets us override the default display name (ASCII English characters and punctuation only, don't include any equals `=` signs!).
+* The `main` entry lets us override the default name for the primary program file.
+* The `icon` entry lets us override the default name for the launcher icon.
