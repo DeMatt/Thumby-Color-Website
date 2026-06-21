@@ -107,3 +107,25 @@ Yay, the square moves!  You press left, it goes left;  you press up, it goes up;
 ```
 
 Now our little square hits the edge of the screen and stops.  We could add instructions for what the A and B buttons do, we could mess with the CameraNode... but let's do something a bit different.
+
+## Multiple instantiations
+Replace the line `rectangle = MovableRectangle()` with the following:
+
+```py
+redRect = MovableRectangle()
+greenRect = MovableRectangle()
+blueRect = MovableRectangle()
+
+redRect.position.y = -20 # Offset upwards
+redRect.color = 0b1111100000000000 # This binary number equals 63488 (decimal) or 0xF800 (hexadecimal), maximum red
+greenRect.position.x = -18 # Offset left and down
+greenRect.position.y = 10
+greenRect.color = 0b0000011111100000 # This equals 2016 or 0x07E0, maximum green
+greenRect.rotation = 2.0943951 # Starts out rotated one-third counterclockwise
+blueRect.position.x = 18 # Offset right and down
+blueRect.position.y = 10
+blueRect.color = 0b0000000000011111 # This equals 31 or 0x001F, maximum blue
+blueRect.rotation = 4.1887902 # Starts out rotated two-thirds counterclockwise
+```
+
+Now there's a little triangular formation of colored squares, and they all move in the same way when you press the buttons.  That does mean that bashing them into the edge of the screen means they'll all pile up at the edge of the screen (and not separate when you move away), and since the blue square (represented by the blueRect Node) is the last one to be created, it gets drawn on top.
