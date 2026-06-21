@@ -129,3 +129,14 @@ blueRect.rotation = 4.1887902 # Starts out rotated two-thirds counterclockwise
 ```
 
 Now there's a little triangular formation of colored squares, and they all move in the same way when you press the buttons.  That does mean that bashing them into the edge of the screen means they'll all pile up at the edge of the screen (and not separate when you move away), and since the blue square (represented by the blueRect Node) is the last one to be created, it gets drawn on top.
+
+## Menu to exit
+There's one more function I'd like to add.  While the Thumby Color is connected to your computer and Thonny, you can press the "Stop/Restart backend" button to halt our game, but once we disconnect it, we'll have to flip the Thumby Color's power off and on to exit our game.  Let's change that;  add the following after the `self.position = newPos` line in the MovableRectangle class definition:
+
+```py
+        if engine_io.MENU.is_just_pressed:
+            engine.stop() # Stops the game engine
+            engine_io.release_all_buttons() # Flags all the buttons as 'released', to prevent spurious inputs from messing with subsequent code
+```
+
+Now, you can press the Menu button, and our game will exit.  Technically, it continues executing from where you called `engine.start()`, but since that's the end of the code, that's also the end of the game.
