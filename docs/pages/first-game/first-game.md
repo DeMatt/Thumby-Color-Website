@@ -93,7 +93,11 @@ Let's add some D-pad functionality.  Add the following to the `def tick(self, dt
         self.position = newPos
 ```
 
-Stop, save, run.  Yay, the square moves!  You press left, it goes left;  you press up, it goes up;  you press right, it goes right;  and you press down, it goes down.  And if you keep pressing in a direction... it goes off the edge of the screen.  Oops.  Let's cap how far the square can move;  add the following, just before the `self.position = newPos` line:
+Stop, save, run.
+
+![](images/6_moving_square.gif)
+
+Yay, the square moves!  You press left, it goes left;  you press up, it goes up;  you press right, it goes right;  and you press down, it goes down.  And if you keep pressing in a direction... it goes off the edge of the screen.  Oops.  Let's cap how far the square can move;  add the following, just before the `self.position = newPos` line:
 
 ```py
         if newPos.x < -64: newPos.x = -64
